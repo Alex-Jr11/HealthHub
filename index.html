@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Links-->
+    <link rel="icon" href="img/logo.png"icon"  é usado para colocar um icone no sie (tipo uma logo)-->
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/scripit.js" defer></script>
+    <title>HealthHub</title>
+</head>
+
+<body>
+    <header>
+        <!--Barra de navegação-->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><button onclick="showContent('main')">Início</button></li>
+                <li><button onclick="showContent('reminders')">Lembretes</button></li>
+                <li><button onclick="showContent('food')">Alimentação</button></li>
+                <li><button onclick="showContent('meditation')">Meditação</button></li>
+                <li><button onclick="showContent('records')">Registros</button></li>
+                <li><a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSePqOfXmxNCveMcZgLW-jAKnMnjX9itu7C62lXYL-ol1_J0WA/viewform?usp=header">Feedback</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="main" class="content active">
+            <div class="container" id="text">
+                <h1 id="hero">Bem-vindo ao HealthHub</h1>
+            </div>
+        </div>
+    </header>
+    <!--=============================================================================================================================================================-->
+    <!--Menu lateral/Menu lateral ao clicar no ícone-->
+    <div class="menu-lateral" onclick="toggleMenu()">&#9776;</div>
+
+    <aside id="side-menu" class="side-menu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <ul>
+            <li><a href="#perfil">Perfil</a></li>
+            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#ajuda">Ajuda</a></li>
+            <li><button id="btnSair">Sair</button></li>
+        </ul>
+    </aside>
+    <!--=============================================================================================================================================================-->
+    <!--SEÇÕES-->
+    <!--ÍNICIO-->
+    <main>
+        <section class="content active">
+            <div class="content-container">
+                <h2>Objetivo</h2>
+                <p>
+                    O objetivo do aplicativo é fornecer aos usuários uma plataforma que facilite o acompanhamento de sua
+                    saúde física e mental,
+                    incluindo registro de atividades físicas, alimentação, meditação e lembretes para consultas médicas.
+                </p>
+            </div>
+        </section>
+        <!--=============================================================================================================================================================-->
+        <!--LEMBRETES-->
+        <section id="reminders" class="content">
+            <form id="addReminderForm">
+                <input type="text" id="reminderInput" placeholder="Digite um lembrete" required>
+                <button type="submit" id="botao">Adicionar Lembrete</button>
+            </form>
+            <table id="reminderTable">
+                <thead>
+                    <tr>
+                        <th>Lembrete</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Lembretes serão adicionados aqui-->
+                </tbody>
+            </table>
+        </section>
+        <!--=============================================================================================================================================================-->
+        <!--ALIMENTAÇÃO-->
+        <section id="food" class="content">
+            <h1>Alimentação</h1>
+            <table class="nutrition-table">
+                <thead>
+                    <tr>
+                        <th colspan="4">Plano Alimentar Balanceado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Opções</th>
+                        <th>Calorias (kcal)</th>
+                        <th>Benefícios</th>
+                    </tr>
+                    <tr>
+                        <td>Café da Manhã</td>
+                        <td>Frutas, Aveia, Iogurte</td>
+                        <td>300-400</td>
+                        <td>Fornece energia e nutrientes essenciais</td>
+                    </tr>
+                    <tr>
+                        <td>Almoço</td>
+                        <td>Arroz Integral, Peito de Frango, Salada</td>
+                        <td>500-700</td>
+                        <td>Alto em proteínas e fibras</td>
+                    </tr>
+                    <tr>
+                        <td>Lanche</td>
+                        <td>Oleaginosas, Smoothies</td>
+                        <td>200-300</td>
+                        <td>Aumenta a saciedade</td>
+                    </tr>
+                    <tr>
+                        <td>Jantar</td>
+                        <td>Sopa de Legumes, Peixe Grelhado</td>
+                        <td>400-600</td>
+                        <td>Leve e fácil de digerir</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--=============================================================================================================================================================-->
+        <!--MEDITAÇÃO-->
+        <section id="meditation" class="content">
+            <h1>Meditação</h1>
+            <p>Registre suas sessões de meditação abaixo:</p>
+
+            <!-- Formulário para adicionar sessões de meditação -->
+            <form id="meditationForm">
+                <input type="date" id="meditationDate" required>
+                <input type="number" id="meditationDuration" placeholder="Duração (minutos)" required>
+                <input type="text" id="meditationNotes" placeholder="Observações (opcional)">
+                <button type="submit">Adicionar Sessão</button>
+            </form>
+
+            <!-- Tabela de sessões de meditação -->
+            <table id="meditationTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Duração (minutos)</th>
+                        <th>Observações</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sessões serão adicionadas aqui -->
+                </tbody>
+            </table>
+        </section>
+        <!--=============================================================================================================================================================-->
+        <!--REGISTROS-->
+        <section id="records" class="content">
+            <h1>Registros</h1>
+            <p>Mantenha seu progresso em saúde sempre atualizado!</p>
+            <table class="records-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Atividade</th>
+                        <th>Duração</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10/01/2025</td>
+                        <td>Caminhada</td>
+                        <td>30 minutos</td>
+                        <td><span class="status completed">✅ Completo</span></td>
+                        <td><button class="edit-btn">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>11/01/2025</td>
+                        <td>Yoga</td>
+                        <td>45 minutos</td>
+                        <td><span class="status pending">⚠ Pendente</span></td>
+                        <td><button class="edit-btn">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>12/01/2025</td>
+                        <td>Meditação</td>
+                        <td>20 minutos</td>
+                        <td><span class="status completed">✅ Completo</span></td>
+                        <td><button class="edit-btn">Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--=============================================================================================================================================================-->
+        <!--RODAPÉ-->
+        <div id="rodape">
+            <!--IMAGEM-->
+            <img src="img/rodape.png" alt="Logo da empresa">
+            &copy; Copyright HealthHub
+        </div>
+    </main>
+</body>
+
+</html>

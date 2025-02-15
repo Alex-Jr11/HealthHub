@@ -1,0 +1,536 @@
+/*Resete basico*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333333;
+    background-image: url("../img/fundo-de-alimentos.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+}
+
+header {
+    background-color: #054058;
+    padding: 10px 20px;
+    position: relative;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+header nav ul li button:hover {
+    background-color: #91d8f5;
+}
+
+#main {
+    padding: 5px;
+    background-color: #054058;
+}
+
+/*BARRA DE NAVEGAÇÃO*/
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #87ceeb;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/*LINKS PRINCIPAIS*/
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+    margin-left: 20px;
+}
+
+/*LINKS GERAIS*/
+.nav-links a {
+    text-decoration: none;
+    color: #f2f2f2;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6ba292;
+}
+
+/*SEÇÕES*/
+.content {
+    display: none;
+    text-align: center;
+    width: 100%;
+    /* Diminuir a largura das seções*/
+    max-width: 1400px;
+    /* Largura máxima das seções em telas grandes*/
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    margin: 50px auto;
+    /* Centraliza a seção*/
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/*Títulos e parágrafos*/
+.content h2 {
+    font-size: 2.5rem;
+    color: #2d0a7e;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.content.active {
+    display: block;
+    background-color: #fcfcfc;
+    padding: 150px 0 50px;
+    /* Maior padding superior para o efeito de menu fixo*/
+    text-align: center;
+}
+
+.content.active h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.content.active p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero {
+    padding: 65px;
+}
+
+/*MENU LATERAL*/
+.menu-lateral {
+    font-size: 28px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #6ba292;
+    z-index: 1000;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* Fora da tela inicialmente*/
+    width: 250px;
+    height: 100%;
+    background-color: #6ba292;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin: 20px 0;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.side-menu a:hover {
+    color: #054058;
+}
+
+/*Botão de fechar no menu lateral*/
+.close-btn {
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-align: right;
+}
+
+/* Mostrar menu lateral */
+.side-menu.active {
+    right: 0;
+}
+
+/*BOTÃO DE SAIR no menu lateral*/
+#btn-sair {
+    background-color: #78948c;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-sair:hover {
+    background-color: #6ba292;
+    transform: scale(1.05);
+}
+
+/*TABELA DE LEMBRETES*/
+#reminderTable {
+    margin-top: 20px;
+    /* Ajuste visual opcional*/
+    display: none;
+    /* Tabela oculta inicialmente*/
+}
+
+main {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f9;
+}
+
+#botao {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: line-through;
+    color: #888;
+}
+
+button {
+    border: none;
+    /* Remove a borda */
+    outline: none;
+    /* Remove o contorno ao focar no botão */
+    background-color: #6ba292;
+    color: white;
+    padding: 10px 20px;
+    /* Espaçamento interno */
+    border-radius: 5px;
+    /* Arredondar os cantos, opcional */
+    cursor: pointer;
+    /* Cursor de mão ao passar por cima */
+}
+
+button:hover {
+    background-color: #6ba292;
+}
+
+button.complete {
+    background-color: #28a745;
+    color: white;
+}
+
+button.complete:hover {
+    background-color: #218838;
+}
+
+button.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
+
+/*TABELA DE REGISTROS*/
+.records-table {
+
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.records-table th,
+.records-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.records-table th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+.records-table td {
+    color: #555;
+}
+
+.records-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.records-table tr:hover {
+    background-color: #e0f7fa;
+}
+
+.status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status.completed {
+    color: #2e7d32;
+    background-color: #e8f5e9;
+}
+
+.status.pending {
+    color: #d32f2f;
+    background-color: #ffebee;
+}
+
+.edit-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #0d47a1;
+}
+
+/*TABELA DE MEDITAÇÃO*/
+#meditationTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#meditationTable th,
+#meditationTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#meditationTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#meditationTable tr:hover {
+    background-color: #f9f9f9;
+}
+
+#meditationForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#meditationForm input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#meditationForm button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#meditationForm button:hover {
+    background-color: #0056b3;
+}
+
+/* RODAPÉ */
+#rodape {
+    color: #777;
+    margin: 1px 0;
+    padding: 30px 0;
+    text-align: center;
+}
+
+#rodape img {
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 94px;
+}
+
+/* ANIMAÇÃO DE FADE-IN  */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Esconde os links principais em telas pequenas */
+    }
+}
